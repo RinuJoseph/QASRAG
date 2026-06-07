@@ -1,4 +1,4 @@
-name: legal-qas
+name: qasrag
 channels:
   - pytorch
   - nvidia
