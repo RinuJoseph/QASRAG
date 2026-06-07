@@ -1,0 +1,90 @@
+# Legal-QAS configuration for KoBLEX English.
+#
+# Entry script: scripts/run_retrieval.py
+# Pipeline    : entity-PPR top-k_g  +  NV-Embed-v2 dense top-k_d
+#              -> union+dedup pool  -> LLM listwise rerank (gpt-4o-mini)
+#              -> top-k_qa to QA reader (gpt-4o-mini).
+# Evaluation  : recall@5/10/20, parser token-F1, NV-Embed cosine,
+#              Legal Fidelity (DeepEval GEval, gpt-4o judge).
+
+dataset:
+  name: koblex
+  root: data
+  questions: data/koblex.json
+  corpus: data/koblex_corpus.json
+
+paths:
+  cache_root: index/cache
+  output_root: results
+  passage_embeddings_parquet: index/corpus_graph/chunk_embeddings/vdb_chunk.parquet
+  ner_cache:                  index/openie/ner
+  triples_cache:              index/openie/triples
+  passage_emb_cache:          index/cache/embeddings/passage
+  corpus_graph_pickle:        index/corpus_graph/graph.pickle
+
+embedder:
+  model_name: nvidia/NV-Embed-v2
+  embedding_max_seq_len: 4096
+  embedding_batch_size: 8
+  embedding_dtype: float16
+  passage_instr: query_to_passage
+  fact_instr: query_to_fact
+
+llm:
+  ner_model: gpt-4o-mini
+  triple_model: gpt-4o-mini
+  filter_model: gpt-4o-mini
+  decomposition_model: gpt-4o-mini
+  qa_model: gpt-4o-mini
+  rerank_model: gpt-4o-mini
+  judge_model: gpt-4o
+
+pool:
+  mq_top: 100
+  sq_top: 10
+
+graph:
+  synonym_threshold: 0.8
+
+fact_filter:
+  input_top_k: 10
+  output_cap_k: null
+  fallback_top_k: 5
+  temperature: 0.0
+  max_completion_tokens: 120
+
+ppr:
+  damping: 0.5
+  passage_node_weight: 0.25      # raw value; reset override zeros passage seeds
+  scoring_rule: own_only
+  uniform_edge_weights: false
+  use_corpus_subgraph: true      # PPR over induced subgraph of the prebuilt corpus graph
+
+hybrid:
+  k_each: 10                    # entity-PPR top-k_each and dense top-k_each
+  rerank_top_k: 5               # passed to QA
+  max_pool_size: 20
+
+qa:
+  top_k_passages: 5
+  temperature: 0.0
+  max_completion_tokens: 2000
+  system_prompt: prompts/qa_system.txt
+  instruction_prompt: prompts/qa_instruction.txt
+
+rerank:
+  prompt: prompts/rerank_select.txt
+  include_background: true    # if false, only `question_eng` is shown to the reranker
+  max_parallel: 16
+  temperature: 0.0
+  max_tokens: 2000
+
+lf_eval:
+  criteria: prompts/lf_eval.json
+
+workers:
+  decomposition: 16
+  openie: 16
+  pipeline: 8
+  qa: 32
+  rerank: 16

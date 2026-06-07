@@ -1,0 +1,43 @@
+
+<EXAMPLE>
+Question: A served in the military for 10 years but was unavoidably discharged. Under the Military Pension Act, A was determined to be ineligible to receive a pension after discharge. A has surviving family members, and issues arose concerning the return of the contributions A paid during military service and the survivors' benefits for A's family.
+How are the contributions A paid during military service handled? Also, what is the order of priority when A's family receives survivors' benefits?
+Context:
+Military Pension Act Article 4 Return of Contributions Article 4 (Return of Contributions) For a person who was a soldier but has no right to receive benefits under this Act, or for that person's survivors, the amount consisting of the contributions paid by the soldier during service plus interest prescribed by Presidential Decree shall be returned.
+Military Pension Act Article 10 Priority among Survivors Article 10 (Priority among Survivors) The order of survivors entitled to receive benefits shall follow the order of inheritance under the Civil Act.
+Answer: The contributions A paid during military service shall be returned in an amount equal to those contributions plus interest prescribed by Presidential Decree. The order of priority for A's family to receive survivors' benefits shall follow the order of inheritance under the Civil Act.
+
+Question: A was sentenced at first instance to six months' imprisonment for assault. Both defendant A and the prosecutor appealed.
+Can the appellate court sentence A to a heavier punishment than the judgment of the first instance?
+Context:
+Criminal Procedure Act Article 368 Prohibition of Disadvantageous Modification Article 368 (Prohibition of Disadvantageous Modification) In a case appealed by the defendant, or appealed on behalf of the defendant, a punishment heavier than that imposed in the original judgment may not be imposed.
+Answer: The appellate court may not sentence A to a heavier punishment than the judgment of the first instance.
+
+Question: A secretly entered B's house and was stealing valuables when B discovered A. When B tried to recover the valuables, A used violence against B and succeeded in escaping. A few days later, in another incident, C inflicted serious injury on victim D during the course of robbing valuables.
+What punishment applies respectively where A used violence against B in attempting to take the valuables, and where C injured D?
+Context:
+Criminal Act Article 337 Robbery Resulting in Injury or Bodily Harm Article 337 (Robbery Resulting in Injury or Bodily Harm) When a robber injures a person or causes a person to be injured, the robber shall be punished by imprisonment for life or by imprisonment for not less than seven years.
+Criminal Act Article 335 Quasi-Robbery Article 335 (Quasi-Robbery) When a thief uses violence or intimidation for the purpose of resisting recovery of the property, escaping arrest, or destroying traces of the crime, the provisions of Articles 333 and 334 shall apply.
+Answer: Where C injures a person or causes a person to be injured, C shall be punished by imprisonment for life or by imprisonment for not less than seven years. Where A used violence to resist recovery of the property, A shall be punished under Article 333 by imprisonment for not less than three years.
+
+Question: A is the owner of land in an old apartment complex located in Gangnam-gu, Seoul, and the apartment complex has been designated as a site subject to a reconstruction project under the Act on the Improvement of Urban Areas and Residential Environments. B is the project implementer for this reconstruction project and is promoting the project by establishing a reconstruction association. However, A did not consent to the establishment of the reconstruction association or to the designation of the project implementer. B intends to demand that A sell ownership of the apartment and land.
+When does the period during which B may demand that A sell ownership of the apartment and land begin, and what must B do if no agreement is reached with A?
+Context:
+Act on the Improvement of Urban Areas and Residential Environments Article 64 Sale Demand in Reconstruction Projects Paragraph 4 After the period under paragraph (2) has passed, the project implementer may, within two months from the expiration of that period, demand that landowners, etc. who replied that they would not consent to the establishment of the association or the designation of the project implementer, and persons who own only buildings or land, sell ownership of the buildings or land and other rights.
+Act on the Improvement of Urban Areas and Residential Environments Article 64 Sale Demand in Reconstruction Projects Paragraph 1 A project implementer of a reconstruction project shall, within 30 days from the date public notice of authorization for the project implementation plan is given, urge in writing the following persons to reply as to whether they consent to the establishment of the association or the designation of the project implementer.
+Act on the Improvement of Urban Areas and Residential Environments Article 64 Sale Demand in Reconstruction Projects Paragraph 2 A landowner, etc. who has received the demand under paragraph (1) shall reply within two months from the date of receiving the demand.
+Act on the Improvement of Urban Areas and Residential Environments Article 73 Measures against Persons Who Have Not Applied for Sale, etc. Paragraph 2 If an agreement under paragraph (1) is not reached, the project implementer shall, within 60 days from the day following the expiration date of that period, file an application for adjudication of expropriation or bring an action for a sale-demand claim.
+Answer: B may demand that A sell ownership of the apartment and land within two months from the expiration of the period under paragraph (2), and if no agreement is reached, B must file an application for adjudication of expropriation or bring an action for a sale-demand claim within 60 days from the day following the expiration date of that period.
+
+Question: A, a government agency, established new environmental regulations and issued orders to some companies to reduce their waste emissions. B, one of the companies, claimed that the order was excessively strict and interfered with its business operations, and filed a lawsuit in court alleging that the standards for the order were unclear. B argued that the order was unfair because the administrative agency had not established or publicly announced the standards.
+Even if the environmental regulation issued by A to B is a discretionary disposition, in what cases may a court revoke it, and what obligation does A have in establishing and publicly announcing the standards for the environmental regulation?
+Context:
+Administrative Litigation Act Article 27 Revocation of Discretionary Disposition Article 27 (Revocation of Discretionary Disposition) Even where a disposition falls within the discretion of an administrative agency, the court may revoke it if the disposition exceeds the bounds of discretion or constitutes an abuse thereof.
+Administrative Procedures Act Article 20 Establishment and Public Announcement of Disposition Standards Paragraph 1 An administrative agency shall, in view of the nature of the relevant disposition, establish and publicly announce the necessary disposition standards as specifically as possible. The same shall apply where disposition standards are changed.
+Answer: A court may revoke it when it exceeds the bounds of discretion or constitutes an abuse of discretion, and A must establish and publicly announce the necessary regulatory standards as specifically as possible in view of the nature of the regulation.
+
+<Query>
+Question: $question
+Context:
+$context_str
+Answer:

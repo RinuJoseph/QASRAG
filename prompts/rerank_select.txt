@@ -1,0 +1,27 @@
+I will provide you with {num} statutory provisions, each indicated by a
+numerical identifier []. Select the provisions based on their relevance to
+the legal question: {question}.
+
+{context}
+
+Legal Question: {question}
+
+Please follow the steps below:
+Step 1. List the information requirements needed to answer this legal question
+        (e.g., each legal element, condition, or cross-referenced rule the
+        answer depends on).
+Step 2. For each requirement in Step 1, find the provision(s) that contain the
+        information for that requirement. Prefer the provision that states the
+        operative rule over one that merely mentions it. For multi-hop
+        questions, ensure each information requirement from Step 1 has at
+        least one matching provision in your selection; do not drop a
+        requirement just because its supporting provision is less directly
+        worded.
+Step 3. Rank the chosen provisions from most to least relevant. Always
+        select at least 5 provisions, even if you are uncertain about some;
+        include those provisions at lower positions in the ranking rather
+        than excluding them. If two provisions seem similar, include both;
+        if a provision might cover a requirement, include it at a lower
+        rank rather than dropping it. The format of the final output should
+        be '### Final Selection: [most_relevant_id] [next_id] ... [least_relevant_id]',
+        e.g., ### Final Selection: [2] [1] [7] [4] [12].
