@@ -1,10 +1,4 @@
 """BAAI/bge-large-en-v1.5 encoder (BERT encoder, 335M), drop-in for NVEmbedEncoder.
-
-Same surface (.encode(texts, kind) -> (N,D) float32 L2-normalized; .get(cfg)).
-bge-v1.5 uses a single retrieval instruction prepended to the QUERY side only
-("Represent this sentence for searching relevant passages: "); documents get no
-instruction. So any query-side kind -> bge query instr; passage/doc -> none.
-Loaded via sentence-transformers, fp16 on CUDA. dim=1024, max_seq_len=512.
 """
 import threading
 import numpy as np

@@ -6,8 +6,6 @@ prompt, then parse the text after the "Answer:" marker.
 import re
 from typing import Dict, List
 
-from qas_prompts.rag_qa_musique import build_messages
-
 from .llm import LLMClient
 
 
@@ -37,6 +35,7 @@ class QAReader:
         top_passages: list of {chunk_id, title, ...}; text is fetched from
         corpus. Returns {raw_response, predicted_answer}.
         """
+        from qas_prompts.rag_qa_musique import build_messages
         passages = [
             {"title": corpus[p["chunk_id"]]["title"],
              "text":  corpus[p["chunk_id"]]["text"]}

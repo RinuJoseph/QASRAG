@@ -1,11 +1,5 @@
-"""Evaluation metrics — F1 / EM / gold-set + Recall@k.
-are directly comparable to :
-  - normalize_answer
-  - token F1 + EM
-  - gold_set per sample: answer / gold_ans
-                            / reference / obj + answer_aliases, plus koblex
-                            answer_eng.
-  - recall_at_k            (retrieval recall metric)
+"""
+Evaluation metrics — F1  / gold-set + Recall@k.
 """
 import re
 import string

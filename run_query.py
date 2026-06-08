@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """Run QAS on a single question and print the retrieved passages + answer.
 
   python run_query.py --question "Until what point can Person B claim damages against Person A?"

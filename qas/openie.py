@@ -1,18 +1,6 @@
-"""Self-contained OpenIE: NER + NER-conditioned triple extraction.
+"""
+OpenIE: NER + NER-conditioned triple extraction.
 
-Step 3 of the QAS pipeline. OpenIE extraction: render the NER + triple-extraction prompts (in
-QAS/prompts/) ourselves, call the LLM via our own LLMClient, and parse the
-JSON responses with the same regex strategy uses, made robust to
-markdown fences / surrounding prose.
-
-Parsing:
-  - NER:    find a JSON object containing "named_entities": [...], json.loads it,
-            dedup preserving order.
-  - Triples: find a JSON object containing "triples": [[s,p,o],...], json.loads,
-            keep only length-3 triples cast to strings, dedup preserving order.
-
-Results are cached per chunk as JSON (one file per chunk_id) so the LLM runs at
-most once per (chunk, type).
 """
 import json
 import re

@@ -1,14 +1,5 @@
-"""Evaluation metrics for retrieval and answer fidelity.
-
-recall_at_k          - retrieval recall at k, matching the formula:
-                       |gold ∩ ranked[:k]| / max(|gold|, 1).
-parser_token_f1      - exact token-overlap F1 on normalized strings, same as
-                       the QAS metrics implementation; reused to keep tF1 directly
-                       comparable across baselines.
-nvembed_cosine       - mean cosine similarity between the answer prediction and
-                       the gold answer in NV-Embed-v2 space.
-lf_eval              - Legal Fidelity GEval via DeepEval, scored by gpt-4o by
-                       default. The judge model is configurable.
+"""
+Evaluation metrics for retrieval and answer fidelity.
 """
 from __future__ import annotations
 

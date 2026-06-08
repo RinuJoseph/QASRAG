@@ -1,10 +1,5 @@
-"""intfloat/e5-mistral-7b-instruct encoder, drop-in for NVEmbedEncoder.
-
-Same surface (.encode(texts, kind) -> (N,D) float32 L2-normalized; .get(cfg)).
-e5-mistral uses the same instruction scheme as NV-Embed/gte ("Instruct: <task>\\n
-Query: <text>" for the query side, no instruction for documents), with LAST-token
-pooling. Loaded via sentence-transformers (which carries e5-mistral's last-token
-pooling config), fp16 on CUDA. dim=4096.
+"""
+e5-mistral-7b-instruct encoder,
 """
 import threading
 import numpy as np

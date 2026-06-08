@@ -1,11 +1,5 @@
-"""LLM fact filter (step 5 of the QAS pipeline).
-
-Score every pool triple by query_to_fact cosine to the MAIN query, min-max
-normalize, take the top `input_top_k` candidates, and ask the LLM (gpt-4o-mini)
-— given the main query and its sub-questions — which candidates contain
-evidence. The kept subset seeds the PPR entity reset. If the LLM keeps none,
-fall back to the top `fallback_top_k` by cosine. There is no output cap by
-default (`output_cap_k = None`).
+"""
+LLM fact filter (step 5 of the QAS pipeline).
 """
 import re
 from typing import List, Tuple

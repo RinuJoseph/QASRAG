@@ -1,16 +1,5 @@
-"""Per-dataset adapters .
-
-Each adapter turns a (queries.json, corpus.json) pair into the uniform record:
-
-    corpus:  dict[chunk_id -> {doc_id, title, text, content}]
-    queries: list[{qid, query, gold, answer, sample}]
-       gold: list[{hop, chunk_id, title, subq, answer}]
-
-`chunk_id` = "chunk-" + md5(title + "\\n" + text), 
-
-Dispatch via `load_dataset(name, dataset_root)`. Supported names:
-    musique  hotpotqa  2wikimultihopqa  hover  popqa  nq_rear
-    lveval  narrativeqa_dev_10_doc  koblex
+"""
+Per-dataset adapters .
 """
 from __future__ import annotations
 

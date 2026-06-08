@@ -1,12 +1,10 @@
-"""LLM fact filter prompt — ours.
+"""LLM fact filter prompt
 
 Given a multi-hop question, its sub-questions, and 30 candidate OpenIE facts
 ranked by cosine, ask gpt-4o-mini to identify which facts contain evidence
 needed to answer the main question or any sub-question.
 
 Output format: comma-separated 1-based indices, or 'NONE'.
-
-Used by src/fact_filter.py.
 """
 
 FACT_FILTER_SYSTEM = (
@@ -38,7 +36,7 @@ def build_user_message(main_query: str, sub_questions: list, candidate_facts: li
         f"{facts_block}\n\n"
         f"Output the numbers of facts that contain evidence for the "
         f"main question or any sub-question. Comma-separated list "
-        f"(e.g. '3, 7, 12') or 'NONE'. No prose."
+        f"(e.g. '3, 7, 12') or 'NONE'."
     )
 
 

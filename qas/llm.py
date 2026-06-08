@@ -1,11 +1,5 @@
-"""LLM client wrapping OpenAI (default) and Anthropic (model prefix 'claude').
-
-API keys are read from the environment by the underlying SDKs
-(OPENAI_API_KEY / ANTHROPIC_API_KEY). Keys are NEVER hardcoded here.
-
-Token usage is accumulated on the client instance so the eval script can
-report total tokens and an approximate cost. The gpt-4o-mini price
-(input $0.15 / output $0.60 per 1M tokens) is the default rate.
+"""
+LLM client wrapping OpenAI (default) 
 """
 import threading
 

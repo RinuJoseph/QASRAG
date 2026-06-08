@@ -1,7 +1,4 @@
-"""Misc utilities: text normalization, hashing, chunk_id, JSON IO.
 
-Self-contained — imports nothing outside the QAS package.
-"""
 import json
 import hashlib
 import re

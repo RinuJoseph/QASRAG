@@ -1,4 +1,4 @@
-"""NV-Embed-v2 dense retrieval against a prebuilt passage embedding store."""
+"""NV-Embed-v2 dense retrieval """
 from __future__ import annotations
 
 import json

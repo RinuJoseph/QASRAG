@@ -14,7 +14,6 @@ extraction) per passage; build an undirected weighted graph with entity<->entity
 recomputed only for new passages.
 
   python index_corpus.py --config configs/koblex.yaml
-  python index_corpus.py --config configs/koblex.yaml --limit 20      # smoke
 """
 from __future__ import annotations
 import argparse, hashlib, json, sys, time

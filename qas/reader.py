@@ -1,8 +1,6 @@
-"""QA reader.
+"""
+QA reader.
 
-Loads the legal QA system and instruction templates from disk and runs
-the answering call against a chat model. The instruction template is a
-``string.Template`` with $question and $context_str placeholders.
 """
 from __future__ import annotations
 

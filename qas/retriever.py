@@ -1,8 +1,6 @@
-"""QAS pool: union of entity-PPR top-k_g and dense top-k_d, deduplicated.
+"""
+QAS pool: union of entity-PPR top-k_g and dense top-k_d, deduplicated.
 
-The two sources are interleaved (entity_1, dense_1, entity_2, dense_2, ...)
-so dedup preserves first-source ranking. The result is the candidate pool
-fed to the LLM listwise reranker.
 """
 from __future__ import annotations
 

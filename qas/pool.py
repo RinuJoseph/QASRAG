@@ -1,11 +1,6 @@
-"""Per-query candidate pool construction (step 2 of the QAS pipeline).
+"""
+Per-query candidate pool construction.
 
-Pool = main-query top-K_m passages UNION each sub-question's top-K_s passages,
-deduplicated. Order: the main-query chunks first (by mq rank), then each
-sub-question's chunks appended in sub-question order (skipping dupes).
-
-Dense retrieval uses NV-Embed-v2 with the query_to_passage instruction and
-min-max-normalized cosine against the (L2-normalized) passage matrix.
 """
 from typing import List, Tuple
 

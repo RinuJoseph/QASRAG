@@ -1,10 +1,5 @@
-"""Alibaba-NLP/gte-Qwen2-7B-instruct encoder, drop-in for NVEmbedEncoder.
-
-Same surface (.encode(texts, kind) -> (N,D) float32 L2-normalized; .get(cfg)).
-gte-Qwen2 uses the SAME instruction scheme as NV-Embed/E5 ("Instruct: <task>\\n
-Query: <text>" for the query side, no instruction for documents), so we reuse
-qas.encoder's instruction strings -> only the embedding model changes vs NV-Embed.
-Loaded via sentence-transformers (last-token pooling + normalize), fp16 on CUDA.
+"""
+Alibaba-NLP/gte-Qwen2-7B-instruct encoder,
 """
 import threading
 import numpy as np

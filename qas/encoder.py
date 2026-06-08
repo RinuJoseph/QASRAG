@@ -1,19 +1,5 @@
-"""NV-Embed-v2 encoder + embedding caches — fully self-contained.
-
-The encoder is a a NV-Embed wrapper It loads `nvidia/NV-Embed-v2` via transformers
-`AutoModel` (trust_remote_code, device_map="auto", float16), applies the
-`Instruct: <instruction>\\nQuery: ` template for instruction-conditioned text
-and NO instruction for documents/passages, then L2-normalizes so a dot product
-equals cosine similarity.
-
-Two on-disk caches (both under QAS/cache/<dataset>/embeddings/):
-  - passage/passage_embeddings.npy + passage_keys.json : one (N, D) matrix for
-    the whole corpus, built once.
-  - text/<sha1>.npy : per-text query / sub-question / fact embeddings, built on
-    demand and keyed by (instruction_kind, text).
-
-Thread-safe: a single lock serialises the GPU forward pass (NV-Embed's encode
-is not thread-safe).
+"""
+NV-Embed-v2 encoder + embedding caches —
 """
 import json
 import threading

@@ -1,10 +1,6 @@
-"""LLM listwise selector.
+"""
+LLM listwise selector.
 
-Single API call per query: the full candidate pool is shown to the model
-together with a chain-of-thought legal selection prompt (see
-``prompts/rerank_select.txt``). The model returns a free-form reasoning
-trace ending in ``### Final Selection: [i] [j] [...]`` over the candidate
-indices. The selection order becomes the reranked passage order.
 """
 from __future__ import annotations
 

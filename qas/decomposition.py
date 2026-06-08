@@ -1,12 +1,5 @@
-"""Query decomposition (LLM, gpt-4o-mini by default), cached per qid.
-
-Step 1 of the QAS pipeline: break a multi-hop query into ordered natural-
-language sub-questions. Each qid is cached as one JSON at
-`<cache>/decompositions/<qid>.json`:
-
-  {"qid", "query", "model", "raw_response", "sub_questions": [...]}
-
-Re-running is idempotent — existing cache files are reused.
+"""
+Query decomposition (LLM, gpt-4o-mini by default), 
 """
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed

@@ -1,9 +1,8 @@
-"""Per-query graph construction (step 4 of the QAS pipeline).
+"""
+Per-query graph construction (step 4 of the QAS pipeline).
 
-Builds an undirected weighted igraph over passage nodes (`doc:<chunk_id>`) and
-entity nodes (`ent:<normalized>`). Entities are the normalized subjects/objects
-of the pool's OpenIE triples (normalization = hr2_norm). NER is NOT used for
-graph entities — this matches official indexing.
+Builds an undirected weighted igraph over passage nodes and
+entity nodes. 
 
 Edges:
   passage <-> entity : weight = number of triples in the chunk touching entity

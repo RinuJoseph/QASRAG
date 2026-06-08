@@ -1,11 +1,5 @@
-"""Tuned entity-PPR retrieval.
-
-Builds the per-query reset vector from the entities of the LLM-kept
-triples (passage seeds zeroed), then runs personalised PageRank over
-the induced subgraph of a prebuilt corpus-wide knowledge graph with
-uniform edge weights. The configuration replicates the locked tuned
-setup for KoBLEX: ``damping=0.5``, ``input_top_k=10`` for the fact
-filter, no entity cap, no passage prior contribution to the seed.
+"""
+Tuned entity-PPR retrieval.
 """
 from __future__ import annotations
 

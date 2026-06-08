@@ -1,6 +1,5 @@
-"""OpenIE triple-extraction prompt.
-
-Conditioned on the NER list per passage. Returns a JSON list of triples.
+"""
+OpenIE triple-extraction prompt.
 """
 from .ner import one_shot_ner_paragraph, one_shot_ner_output
 

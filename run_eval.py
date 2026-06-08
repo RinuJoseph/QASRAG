@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """QAS full evaluation on a dataset (default KoBLEX).
 
 Pipeline: EntityPPR + Dense -> QAS pool -> LLM listwise rerank -> top-k -> QA.
@@ -6,7 +6,6 @@ Reports Recall@5 (averaged over ALL queries; a query with no gold counts as 0)
 and Token-F1; optional Legal-Fidelity (LF) with --lf.
 
   python run_eval.py --config configs/koblex.yaml --qa
-  python run_eval.py --config configs/koblex.yaml --qa --lf
 """
 from __future__ import annotations
 import argparse, json, os, sys, time

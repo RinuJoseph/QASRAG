@@ -1,12 +1,6 @@
-"""Personalized PageRank (step 6 of the QAS pipeline).
+"""
+Personalized PageRank (step 6 of the QAS pipeline).
 
-Faithful to algorithm:
-  entity_reset[e] += fact_score / max(|pool chunks containing e|, 1)
-                     (averaged across the kept facts that touch e)
-  passage_reset[p] = mq_DPR_score(p) * passage_node_weight (=0.05)
-  node_weights      = phrase_w + passage_w  (NaN/neg -> 0; uniform fallback)
-  igraph PRPACK undirected, damping=0.5
-  passage_score(p)  = pr[doc:p]  (own PPR mass only)
 """
 from collections import defaultdict
 from typing import Dict, List

@@ -1,6 +1,5 @@
 """NER prompt.
-
-Used by src/openie.py for named-entity recognition on each chunk + query/sub-q.
+for named-entity recognition on each chunk.
 """
 
 ner_system = """Your task is to extract named entities from the given paragraph.

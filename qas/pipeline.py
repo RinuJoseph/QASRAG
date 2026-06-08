@@ -1,4 +1,5 @@
-"""QASPipeline — orchestrates all seven stages for one query.
+"""
+QASPipeline — orchestrates all seven stages for one query.
 
 Stages (per query):
   1. decompose   : query -> sub-questions (LLM, cached per qid)
@@ -9,7 +10,6 @@ Stages (per query):
   6. ppr         : seed reset (entities + passage prior), run PPR, score pool
   7. qa          : top-K passages -> LLM answer
 
-Returns the rich per-query result dict described in the package README.
 """
 import time
 from pathlib import Path
