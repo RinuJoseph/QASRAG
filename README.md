@@ -2,7 +2,7 @@
 
 ## Environment setup
 
-Conda (recommended; brings CUDA PyTorch):
+Conda 
 
 ```bash
 conda env create -f environment.yaml
@@ -15,8 +15,7 @@ or pip into an existing Python 3.10 environment:
 pip install -r requirements.txt
 ```
 
-Set the API key (the OpenAI SDK reads it from the environment; keys are never
-stored in this repo):
+Set the API key (the OpenAI SDK reads it from the environment):
 
 ```bash
 export OPENAI_API_KEY=         # gpt-4o-mini pipeline + gpt-4o LF judge
@@ -42,7 +41,7 @@ Outputs: `index/corpus_graph/chunk_embeddings/vdb_chunk.parquet`,
 
 ```bash
 python run_eval.py --config configs/koblex.yaml --qa            # Recall@5 + Token-F1
-python run_eval.py --config configs/koblex.yaml --qa --lf       # + Legal-Fidelity (gpt-4o judge)
+python run_eval.py --config configs/koblex.yaml --qa --lf       # + LF-Eval (gpt-4o judge)
 ```
 
 
