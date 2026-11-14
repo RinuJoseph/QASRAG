@@ -54,7 +54,6 @@ python run_query.py --question "Until what point can Person B claim damages agai
 
 
 
-# Appendix
 
 ## A. Notations and Pseudo Code
 
