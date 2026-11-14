@@ -84,36 +84,13 @@ Table A1 summarizes a list of notations commonly used throughout this paper. Alg
 
 
 
-### Algorithm A1: QASRAG
+## A. QASRAG Algorithm
 
-**Input:** Query `q`, corpus `D`, offline graph `G`  
-**Parameters:** Query pool `K`, sub-query pool `S`, candidate triples `l`, per-branch passages `N`, damping factor `d`  
-**Output:** Answer to `q`
+The overall pipeline of QASRAG is shown below.
 
-```text
- 1. Q_q ← Decompose(q)                  # Decompose into sub-questions
- 2. M_q ← Retrieve(q, K)                # Retrieve original-query passages
- 3. P_q ← M_q
-
- 4. for each q_i in Q_q:
-        P_q ← P_q ∪ Retrieve(q_i, S)
-
- 5. G_q, T_p ← Subgraph(G, P_q)        # Build query-attention subgraph
- 6. T_q ← top-l {φ_q(t) : t ∈ T_p}    # Rank candidate facts
- 7. C_q ← Select(q, T_q)              # Select useful facts
-
- 8. if C_q ≠ ∅:
-        e_q ← Reset(C_q)              # Reset probability on entities
-        v_q ← PPR(G_q, e_q, d)
-        D_q^g ← top-N {v_q[p] : p ∈ P_q}
-    else:
-        D_q^g ← ∅
-
- 9. D_q^d ← Retrieve(q, N)           # Dense retrieval passages
-10. R_q ← Rerank(q, D_q^g ∪ D_q^d)
-11. return Answer(q, R_q[:5])
-```
-
+<p align="center">
+  <img src="figures/algorithm-img.png" alt="QASRAG algorithm" width="700">
+</p>
 
 ---
 
