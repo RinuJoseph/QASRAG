@@ -83,50 +83,37 @@ Table A1 summarizes a list of notations commonly used throughout this paper. Alg
 | \(R_q\) | Final top-5 reranked passages |
 
 
+
 ### Algorithm A1: QASRAG
 
-**Input:** Query \(q\); corpus \(D\); offline graph \(G\)
+**Input:** Query `q`, corpus `D`, offline graph `G`  
+**Parameters:** Query pool `K`, sub-query pool `S`, candidate triples `l`, per-branch passages `N`, damping factor `d`  
+**Output:** Answer to `q`
 
-**Parameters:** Query pool \(K\), sub-query pool \(S\), candidate triples \(l\), per-branch passages \(N\), damping factor \(d\)
+```text
+ 1. Q_q ← Decompose(q)                  # Decompose into sub-questions
+ 2. M_q ← Retrieve(q, K)                # Retrieve original-query passages
+ 3. P_q ← M_q
 
-**Output:** Answer to \(q\)
+ 4. for each q_i in Q_q:
+        P_q ← P_q ∪ Retrieve(q_i, S)
 
-1. \(Q_q \leftarrow \operatorname{Decompose}(q)\)  
-   *Decompose query into sub-questions.*
+ 5. G_q, T_p ← Subgraph(G, P_q)        # Build query-attention subgraph
+ 6. T_q ← top-l {φ_q(t) : t ∈ T_p}    # Rank candidate facts
+ 7. C_q ← Select(q, T_q)              # Select useful facts
 
-2. \(M_q \leftarrow \operatorname{Retrieve}(q,K)\)  
-   *Passages for the original query.*
+ 8. if C_q ≠ ∅:
+        e_q ← Reset(C_q)              # Reset probability on entities
+        v_q ← PPR(G_q, e_q, d)
+        D_q^g ← top-N {v_q[p] : p ∈ P_q}
+    else:
+        D_q^g ← ∅
 
-3. \(P_q \leftarrow M_q\)
+ 9. D_q^d ← Retrieve(q, N)           # Dense retrieval passages
+10. R_q ← Rerank(q, D_q^g ∪ D_q^d)
+11. return Answer(q, R_q[:5])
+```
 
-4. **For each** \(q_i \in Q_q\):
-   - \(P_q \leftarrow P_q \cup \operatorname{Retrieve}(q_i,S)\)
-
-5. \(G_q,T_p \leftarrow \operatorname{Subgraph}(G,P_q)\)  
-   *Build query-attention subgraph.*
-
-6. \(T_q \leftarrow \operatorname{top-}l\{\phi_q(t):t\in T_p\}\)  
-   *Rank candidate facts.*
-
-7. \(C_q \leftarrow \operatorname{Select}(q,T_q)\)  
-   *Select useful facts.*
-
-8. **If** \(C_q \neq \emptyset\):
-   - \(\mathbf{e}_q \leftarrow \operatorname{Reset}(C_q)\)  
-     *Reset probability on entities.*
-   - \(\mathbf{v}_q \leftarrow \operatorname{PPR}(G_q,\mathbf{e}_q,d)\)
-   - \(D_q^g \leftarrow \operatorname{top-}N\{\mathbf{v}_q[p]:p\in P_q\}\)  
-     *Graph-retrieval passages.*
-
-9. **Else:**
-   - \(D_q^g \leftarrow \emptyset\)
-
-10. \(D_q^d \leftarrow \operatorname{Retrieve}(q,N)\)  
-    *Dense retrieval passages.*
-
-11. \(R_q \leftarrow \operatorname{Rerank}(q,D_q^g\cup D_q^d)\)
-
-12. **Return** \(\operatorname{Answer}(q,R_q[:5])\)
 
 ---
 
