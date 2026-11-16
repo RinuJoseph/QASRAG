@@ -57,9 +57,9 @@ python run_query.py --question "Until what point can Person B claim damages agai
 
 ##  Notations and Pseudo Code
 
-Table A1 summarizes a list of notations commonly used throughout this paper. Algorithm A1 provides a pseudo code of the proposed QASRAG method.
+Table summarizes a list of notations commonly used throughout this paper. Algorithm A1 provides a pseudo code of the proposed QASRAG method.
 
-**Table A1. Notations used throughout the paper.**
+**Notations used throughout the paper.**
 
 | Symbol | Meaning |
 |---|---|
@@ -123,14 +123,14 @@ All model calls use temperature \(0\). All hyperparameters are held fixed across
 
 ##  Effect of Dense Embedding Models on QASRAG
 
-We also tested our method's efficiency with different dense embedding models and the results (with GPT-4o-mini core) are shown in Table A2.
+We also tested our method's efficiency with different dense embedding models and the results (with GPT-4o-mini core) are shown in below table.
 
 In fact, we used bge-large-en-v1.5 (335M) [xiao2024c], NV-Embed-v2 [lee2025nv], and GTE-Qwen2-7B [li2023towards] and compute Recall@5 under two configurations:
 
 1. When these embeddings are used for dense retrieval (i.e., Dense-Recall@5).
 2. When these embeddings are used as QASRAG's retrieval backbone (QASRAG-Recall@5).
 
-**Table A2. Effect of the dense embedding models on QASRAG. Dense-Recall@5 is the retrieval performance of the embedding model and QASRAG Recall@5 is its performance on the QASRAG pipeline.**
+**Effect of the dense embedding models on QASRAG. Dense-Recall@5 is the retrieval performance of the embedding model and QASRAG Recall@5 is its performance on the QASRAG pipeline.**
 
 | Embedding Model | Dense-Recall@5 | QASRAG-Recall@5 |
 |---|---:|---:|
