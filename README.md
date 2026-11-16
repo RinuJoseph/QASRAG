@@ -55,7 +55,7 @@ python run_query.py --question "Until what point can Person B claim damages agai
 
 
 
-## A. Notations and Pseudo Code
+##  Notations and Pseudo Code
 
 Table A1 summarizes a list of notations commonly used throughout this paper. Algorithm A1 provides a pseudo code of the proposed QASRAG method.
 
@@ -83,7 +83,7 @@ Table A1 summarizes a list of notations commonly used throughout this paper. Alg
 
 
 
-## A. QASRAG Algorithm
+##  QASRAG Algorithm
 
 The overall pipeline of QASRAG is shown below.
 
@@ -93,7 +93,7 @@ The overall pipeline of QASRAG is shown below.
 
 ---
 
-## B. Implementation Details
+##  Implementation Details
 
 For the offline indexing and knowledge graph construction, we use NV-Embed-v2 (7B) [lee2025nv] as our embedding method and GPT-4o-mini [openai_gpt4o_mini_2024] for OpenIE. For fair comparison, we use the same retriever and same LLM for OpenIE across all graph-based methods.
 
@@ -121,7 +121,7 @@ All model calls use temperature \(0\). All hyperparameters are held fixed across
 
 ---
 
-## C. Effect of Dense Embedding Models on QASRAG
+##  Effect of Dense Embedding Models on QASRAG
 
 We also tested our method's efficiency with different dense embedding models and the results (with GPT-4o-mini core) are shown in Table A2.
 
@@ -148,7 +148,7 @@ NV-Embed-v2 and GTE-Qwen2-7B have comparable dense Recall, but NV-Embed-v2 gives
 
 
 
-## D. A Case Study on Token-F1 and LF-Eval
+##  A Case Study on Token-F1 and LF-Eval
 
 In the Discussion section, we analyzed how Token-F1 and LF-Eval can differ based on the generated answers. Here, we examine another case where token-F1 does not completely capture the semantic quality of the generated answer.
 
